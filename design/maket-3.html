@@ -1,0 +1,259 @@
+<title>Мария Левина</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@400;500;600&display=swap">
+<style>
+:root{ --bg:#e8ebe6;--surf:#f3f5f0;--ink:#15231c;--mute:#55655b;--plum:#24402f;--apr:#a8854c;--apr-ink:#1a1408;--line:#cdd3c9;--tint:#dde3d8;--arch:#c5d0c0;--em:#7c6130;color-scheme:light; --tb-bg:#ffffff;--tb-fg:#1c1f24;--tb-line:#dfe2e7;--stage:#e9ebef;--tb-on:#1c1f24;--tb-on-fg:#ffffff;--tb-chip:#f0f2f5 }
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){ --bg:#0e1612;--surf:#16211b;--ink:#e9efe8;--mute:#9bab9f;--plum:#cfe3d2;--apr:#c9a86a;--apr-ink:#1a1408;--line:#25352c;--tint:#1b2a22;--arch:#213328;--em:#d6b777; --tb-bg:#16181c;--tb-fg:#e8eaee;--tb-line:#2a2e35;--stage:#0c0d10;--tb-on:#e8eaee;--tb-on-fg:#16181c;--tb-chip:#23262c;color-scheme:dark}}
+:root[data-theme="dark"]{ --bg:#0e1612;--surf:#16211b;--ink:#e9efe8;--mute:#9bab9f;--plum:#cfe3d2;--apr:#c9a86a;--apr-ink:#1a1408;--line:#25352c;--tint:#1b2a22;--arch:#213328;--em:#d6b777; --tb-bg:#16181c;--tb-fg:#e8eaee;--tb-line:#2a2e35;--stage:#0c0d10;--tb-on:#e8eaee;--tb-on-fg:#16181c;--tb-chip:#23262c;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;display:flex;flex-direction:column;background:var(--bg);color:var(--ink);overflow:hidden;-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--tb-bg)}
+.tb{flex:none;display:flex;align-items:center;gap:10px;flex-wrap:nowrap;min-height:48px;padding:6px max(12px,env(safe-area-inset-left,0px)) 6px max(12px,env(safe-area-inset-right,0px));background:var(--tb-bg);color:var(--tb-fg);border-bottom:1px solid var(--tb-line);font:500 13px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif}
+.tb .lbl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb .lbl b{font-weight:700}
+.tb .lbl span{opacity:.6;margin-left:8px}
+.seg{display:flex;background:var(--tb-chip);border-radius:9px;padding:3px;gap:2px}
+.seg button,.thm{font:inherit;border:0;background:transparent;color:var(--tb-fg);padding:6px 11px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--tb-on);color:var(--tb-on-fg)}
+.thm{background:var(--tb-chip);padding:7px 10px;border-radius:9px}
+.tb button:focus-visible{outline:2px solid #4c8dff;outline-offset:2px}
+@media (max-width:700px){.seg{display:none}.tb .lbl span{display:none}}
+.stage{flex:1;min-height:0;display:flex;justify-content:center;align-items:stretch;background:var(--stage)}
+.device{container-type:inline-size;position:relative;width:100%;background:var(--bg);overflow:hidden}
+.scroller{height:100%;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth;overscroll-behavior:contain}
+.stage.phone{align-items:center;padding:14px 0}
+.stage.phone .device{width:390px;max-width:100%;height:min(100%,844px);border-radius:34px;border:8px solid #0b0c0e;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.demo-toast{position:absolute;left:50%;bottom:16px;transform:translate(-50%,20px);max-width:calc(100% - 32px);background:#111;color:#fff;font:500 14px/1.35 system-ui,sans-serif;padding:11px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:200;text-align:center}
+.demo-toast.on{opacity:1;transform:translate(-50%,0)}
+.r{transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.armed .r:not(.in){opacity:0;transform:translateY(22px)}
+@media (prefers-reduced-motion:reduce){.r{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}.scroller{scroll-behavior:auto}}
+.site{font:400 17px/1.65 Jost,system-ui,sans-serif;color:var(--ink)}
+.site h1,.site h2,.site h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;margin:0;line-height:1.02;text-wrap:balance;letter-spacing:-.01em}
+.site h2 em,.site h1 em{font-style:italic;color:var(--em)}
+.site p{margin:0}
+.w{width:100%;max-width:1160px;margin:0 auto;padding-inline:max(22px,env(safe-area-inset-left,0px))}
+.site section{padding-block:96px;scroll-margin-top:72px}
+.hd{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+.hd .w{display:flex;align-items:center;gap:30px;height:72px}
+.logo{font:600 25px "Cormorant Garamond",serif;color:var(--ink);text-decoration:none;letter-spacing:.01em}
+.logo span{color:var(--em);font-style:italic}
+.nav{display:flex;gap:28px;margin-left:auto;font-size:15px}.nav a{color:var(--mute);cursor:pointer;text-decoration:none}.nav a:hover{color:var(--ink)}
+.btn{font:500 15px Jost;border:0;border-radius:999px;padding:14px 28px;cursor:pointer;background:var(--plum);color:var(--bg);text-decoration:none;display:inline-flex;align-items:center;gap:10px;justify-content:center;transition:transform .15s}
+:root[data-theme=dark] .btn{color:#0e1a13}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .btn{color:#0e1a13}}
+.btn:hover{transform:translateY(-1px)}
+.btn.apr{background:var(--apr);color:var(--apr-ink)}
+.btn.ln{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn:focus-visible,.site button:focus-visible,.site input:focus-visible,.site textarea:focus-visible,.site summary:focus-visible{outline:3px solid var(--apr);outline-offset:3px}
+.burger{display:none;margin-left:auto;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:var(--ink);font-size:18px;cursor:pointer}
+.menu{display:none;position:absolute;left:0;right:0;top:72px;z-index:29;background:var(--bg);padding:6px 22px 20px;flex-direction:column;border-bottom:1px solid var(--line)}
+.menu a{padding:14px 0;border-bottom:1px solid var(--line);font:500 24px "Cormorant Garamond",serif;color:var(--ink);text-decoration:none}
+.hero{padding-block:36px 100px!important}
+.hero .w{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.eb{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);margin-bottom:22px;display:flex;gap:12px;align-items:center}
+.eb::before{content:"";width:36px;height:1.5px;background:var(--apr)}
+.hero h1{font-size:clamp(46px,7vw,92px);font-weight:500}
+.hero .lead{font-size:19px;color:var(--mute);margin-top:28px;max-width:30em}
+.hero .acts{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.facts{display:flex;gap:36px;margin-top:44px;flex-wrap:wrap}.facts b{display:block;font:500 40px "Cormorant Garamond",serif;line-height:1}.facts span{font-size:13px;color:var(--mute)}
+.port{position:relative;max-width:420px;justify-self:end;width:100%}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 28px 28px;background:linear-gradient(170deg,var(--arch),color-mix(in srgb,var(--apr) 40%,var(--arch)));position:relative;overflow:hidden}
+.arch svg{position:absolute;inset:0;width:100%;height:100%}
+.arch .ph{position:absolute;left:0;right:0;bottom:18px;text-align:center;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--plum);opacity:.8}
+.quote{position:absolute;left:-60px;bottom:48px;max-width:240px;background:var(--surf);padding:18px 20px;border-radius:20px;box-shadow:0 20px 40px -18px rgba(40,20,70,.4);font:italic 500 20px/1.2 "Cormorant Garamond",serif}
+.h2{font-size:clamp(36px,5vw,64px)}
+.sec-h{max-width:700px;margin-bottom:56px}.sec-h p{color:var(--mute);margin-top:20px}
+.topics{border-top:1.5px solid var(--ink)}
+.tp{display:grid;grid-template-columns:1fr 1.1fr 40px;gap:28px;padding:26px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:padding .2s}
+.tp:hover{padding-left:12px}.tp h3{font-size:clamp(26px,3vw,38px)}.tp p{color:var(--mute);font-size:16px}.tp span{font-size:22px;color:var(--apr)}
+.about{background:var(--surf)}
+.about .w{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+.about .big{font:italic 500 clamp(28px,3.4vw,42px)/1.15 "Cormorant Garamond",serif}
+.about .txt{display:grid;gap:18px;color:var(--mute)}
+.cv{margin-top:14px;display:grid;gap:0;border-top:1px solid var(--line)}
+.cv div{display:grid;grid-template-columns:90px 1fr;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}.cv b{color:var(--apr);font-weight:500}.cv span{color:var(--ink)}
+.quiz{background:var(--plum);color:var(--bg)}
+:root[data-theme=dark] .quiz{background:#17261d;color:#e9efe8}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .quiz{background:#17261d;color:#e9efe8}}
+.quiz .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.quiz h2 em{color:#d6b777}
+.quiz .lead{opacity:.8;margin-top:20px;max-width:26em}
+.qc{background:var(--surf);color:var(--ink);border-radius:32px;padding:36px;min-height:380px;display:flex;flex-direction:column}
+.qp{display:flex;gap:6px;margin-bottom:26px}.qp i{flex:1;height:4px;border-radius:4px;background:var(--line)}.qp i.on{background:var(--apr)}
+.qc h3{font-size:30px;margin-bottom:22px}
+.qo{display:grid;gap:10px}.qo button{text-align:left;font:400 17px Jost;padding:15px 20px;border-radius:16px;border:1.5px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.qo button:hover{border-color:var(--apr);background:var(--tint)}
+.qc .res{font:500 42px/1 "Cormorant Garamond",serif;margin-bottom:14px}.qc .fine{font-size:13px;color:var(--mute);margin-top:auto;padding-top:20px}
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pc{background:var(--surf);border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:12px;border:1px solid var(--line)}
+.pc.hl{background:var(--tint);border-color:var(--apr)}
+.pc h3{font-size:30px}.pc .pp{font:500 46px "Cormorant Garamond",serif;line-height:1}.pc .pp small{font:400 15px Jost;color:var(--mute)}.pc p{color:var(--mute);font-size:15px}
+.pc ul{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px}.pc li::before{content:"— ";color:var(--apr)}
+.pc .btn{margin-top:auto}
+.blog{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.post{padding:30px;border-radius:28px;display:flex;flex-direction:column;min-height:300px;text-decoration:none;color:var(--ink);justify-content:space-between;cursor:pointer}
+.post:nth-child(1){background:var(--tint)}.post:nth-child(2){background:color-mix(in srgb,var(--apr) 30%,var(--surf))}.post:nth-child(3){background:var(--arch)}
+.post small{font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}.post h3{font-size:32px;margin-top:14px}.post span{font-size:14px;opacity:.7}
+.bk{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.form{background:var(--surf);border-radius:32px;padding:36px;display:grid;gap:18px;border:1px solid var(--line)}
+.form label,.form fieldset{display:grid;gap:8px;font-size:14px;font-weight:500;border:0;padding:0;margin:0;min-width:0}
+.form input[type=text],.form textarea{font:400 17px Jost;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%;resize:vertical}
+.rg{display:flex;gap:8px;flex-wrap:wrap}.rg label{display:block;font-weight:400}.rg input{position:absolute;opacity:0;pointer-events:none}
+.rg span{display:inline-block;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);cursor:pointer;font-size:15px}
+.rg input:checked+span{background:var(--plum);color:var(--bg);border-color:var(--plum)}
+:root[data-theme=dark] .rg input:checked+span{color:#0e1a13}
+.rg input:focus-visible+span{outline:3px solid var(--apr);outline-offset:2px}
+.err{color:#d6336c;font-size:13px;min-height:1em}.fine{font-size:12px;color:var(--mute)}
+.sent{text-align:left}.sent h3{font-size:42px}.sent p{color:var(--mute);margin-top:12px}
+.faq details{border-bottom:1px solid var(--line);padding:22px 0}.faq details:first-child{border-top:1.5px solid var(--ink)}
+.faq summary{font:500 28px "Cormorant Garamond",serif;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px}.faq summary::after{content:"+";color:var(--apr)}.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--mute);margin-top:12px;max-width:44em}
+.ft{padding-block:40px!important;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+.ft .w{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}.ft p{max-width:36em}
+.demo-note{background:var(--apr);color:var(--apr-ink);font-size:13px;font-weight:500;text-align:center;padding:8px 16px}
+.mcta{position:absolute;left:14px;right:14px;bottom:14px;z-index:40;display:none}.mcta .btn{width:100%;box-shadow:0 10px 30px rgba(40,20,70,.35)}
+@container (max-width:980px){.hero .w,.about .w,.quiz .w,.bk{grid-template-columns:1fr;gap:44px}.port{justify-self:center;max-width:360px}.quote{left:-10px}.pr,.blog{grid-template-columns:1fr}.nav{gap:18px}.tp{grid-template-columns:1fr 1.2fr 30px}}
+@container (max-width:720px){.site section{padding-block:60px}.nav,.hd .btn{display:none}.burger{display:block}.menu.open{display:flex}.hd .w{height:64px}.menu{top:64px}.tp{grid-template-columns:1fr 30px;gap:6px}.tp p{grid-column:1/2}.tp span{grid-row:1;grid-column:2}.hero{padding-block:12px 64px!important}.mcta{display:block}.ft{padding-bottom:90px!important}.qc,.form{padding:24px 20px;border-radius:26px}.hero .acts .btn{flex:1}.about .big{font-size:28px}.quote{font-size:17px;max-width:200px;bottom:30px}.cv div{grid-template-columns:70px 1fr}}
+/* v2: строгость, тишина, медленное движение */
+.site{font-weight:400}
+.site h1,.site h2{font-weight:400}
+.hero{overflow:hidden}
+.btn{border-radius:2px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;padding:16px 30px;font-weight:500}
+.btn.ln{border-color:var(--ink)}
+.hd{border-bottom:1px solid var(--line)}
+.burger{border-radius:2px}
+.logo span{font-style:italic}
+.arch{border-radius:2px;background:var(--arch);border:1px solid var(--line);aspect-ratio:3/4}
+.arch .ph{color:var(--mute)}
+.quote{border-radius:2px;border:1px solid var(--line);box-shadow:none;background:var(--surf)}
+.port{z-index:0}.arch,.quote,.bw{position:relative}.arch{position:relative}.quote{position:absolute}
+.breath{position:absolute;left:50%;top:48%;width:128%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:-1;pointer-events:none}
+.bc{position:absolute;inset:calc((1 - var(--s))*50%);border-radius:50%;border:1px solid var(--em);animation:brt 8s ease-in-out infinite}
+@keyframes brt{0%,100%{transform:scale(.8);opacity:.25}50%{transform:scale(1);opacity:.85}}
+.bw{position:absolute;right:0;bottom:-34px;font:italic 500 22px "Cormorant Garamond",serif;color:var(--em);letter-spacing:.04em;transition:opacity .6s;position:absolute}
+.bw.o{opacity:0}
+.eb::before{background:var(--em)}
+.tp{border-bottom:1px solid var(--line);transition:padding .35s}.topics{border-top:1px solid var(--ink)}
+.tp span{color:var(--em)}
+.about{background:var(--surf)}
+.pc,.form,.qc,.post{border-radius:2px}
+.pc.hl{background:var(--tint);border-color:var(--em)}
+.post:nth-child(1){background:var(--tint)}.post:nth-child(2){background:var(--arch)}.post:nth-child(3){background:var(--plum);color:var(--bg)}
+.post:nth-child(3) small,.post:nth-child(3) span{color:inherit}
+.qo button{border-radius:2px}.qo button:hover{border-color:var(--em);background:var(--tint)}
+.qp i.on{background:var(--em)}
+.rg span{border-radius:2px;padding:11px 18px}
+.form input[type=text],.form textarea{border-radius:2px}
+.faq summary{font-size:26px}.faq summary::after{color:var(--em)}
+.faq details:first-child,.topics{border-top-color:var(--ink)}
+.demo-note{background:var(--plum);color:var(--bg)}
+:root[data-theme=dark] .demo-note{color:#0e1a13}
+.hero .w>div:first-child>*{animation:fin 1.2s cubic-bezier(.2,.6,.2,1) both}
+.hero .w>div:first-child>*:nth-child(2){animation-delay:.15s}.hero .w>div:first-child>*:nth-child(3){animation-delay:.3s}.hero .w>div:first-child>*:nth-child(4){animation-delay:.45s}.hero .w>div:first-child>*:nth-child(5){animation-delay:.6s}
+@keyframes fin{from{opacity:0;transform:translateY(14px)}}
+.topics .tp{background:linear-gradient(var(--line),var(--line)) no-repeat 0 100%/0 1px;}
+.mcta .btn{border-radius:2px}
+@container (max-width:720px){.breath{width:112%}.bw{right:auto;left:0;bottom:-32px}.btn{padding:16px 22px}.hero{padding-bottom:80px!important}}
+</style>
+<header class="tb">
+  <div class="lbl"><b>Мария Левина · личный сайт эксперта</b><span>Демо-макет · все данные вымышленные</span></div>
+  <div class="seg" role="group" aria-label="Режим просмотра"><button type="button" data-mode="desk" aria-pressed="true">Компьютер</button><button type="button" data-mode="phone" aria-pressed="false">Телефон</button></div>
+  <button type="button" class="thm" id="thm" aria-label="Сменить тему">◐ Тема</button>
+</header>
+<div class="stage" id="stage"><div class="device" id="device"><div class="scroller" id="scroller">
+<div class="site">
+<div class="demo-note">Демонстрационный сайт: специалист, отзывы и цены вымышлены</div>
+<header class="hd"><div class="w"><a class="logo" data-go="top" href="#">Мария <span>Левина</span></a>
+<nav class="nav"><a data-go="temy">С чем работаю</a><a data-go="obo">Обо мне</a><a data-go="test">Тест</a><a data-go="format">Формат и цена</a><a data-go="faq">Вопросы</a></nav>
+<a class="btn apr" data-go="zapis" href="#">Записаться</a><button class="burger" id="burger" aria-label="Меню">☰</button></div></header>
+<nav class="menu" id="menu"><a data-go="temy" href="#">С чем работаю</a><a data-go="obo" href="#">Обо мне</a><a data-go="test" href="#">Тест</a><a data-go="format" href="#">Формат и цена</a><a data-go="zapis" href="#">Записаться</a></nav>
+<section class="hero" id="top"><div class="w"><div>
+<div class="eb">Семейный психолог, Волгоград и онлайн</div>
+<h1>Разберёмся, что на самом деле <em>происходит</em></h1>
+<p class="lead">Помогаю парам и взрослым людям, которые устали ссориться, выгорели или не понимают, как жить дальше. Без диагнозов, советов «просто расслабьтесь» и давления.</p>
+<div class="acts"><a class="btn apr" data-go="zapis" href="#">Записаться на встречу</a><a class="btn ln" data-go="test" href="#">Пройти короткий тест</a></div>
+<div class="facts"><div><b>9 лет</b><span>практики</span></div><div><b>1 200+</b><span>часов консультаций</span></div><div><b>50 мин</b><span>одна встреча</span></div></div></div>
+<div class="port"><div class="breath" aria-hidden="true"><i class="bc" style="--s:1"></i><i class="bc" style="--s:.82;animation-delay:-.5s"></i><i class="bc" style="--s:.64;animation-delay:-1s"></i></div><div class="arch"><svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMax slice"><circle cx="150" cy="150" r="52" fill="var(--plum)" opacity=".85"/><path d="M40 400c4-80 40-130 110-130s106 50 110 130z" fill="var(--plum)" opacity=".85"/></svg><div class="ph">Здесь будет ваше фото</div></div><div class="quote">«Вы не сломаны. Вы устали»</div><div class="bw" id="bw" aria-hidden="true">вдох</div></div>
+</div></section>
+<section id="temy" style="padding-top:0"><div class="w"><div class="sec-h"><div class="eb">С чем ко мне приходят</div><h2 class="h2">Запросы, с которыми <em>работаю чаще всего</em></h2></div>
+<div class="topics">
+<div class="tp r"><h3>Конфликты в паре</h3><p>Повторяющиеся ссоры, охлаждение, недоверие после измены, решение о расставании.</p><span>→</span></div>
+<div class="tp r"><h3>Выгорание</h3><p>Нет сил даже на то, что раньше радовало. Работа забирает всё, отдых не помогает.</p><span>→</span></div>
+<div class="tp r"><h3>Тревога и самокритика</h3><p>Постоянный внутренний судья, страх ошибиться, сложности с принятием решений.</p><span>→</span></div>
+<div class="tp r"><h3>Отношения с родителями</h3><p>Границы, чувство вины, давление ожиданий, взросление рядом с семьёй.</p><span>→</span></div>
+<div class="tp r"><h3>Кризис и перемены</h3><p>Переезд, развод, потеря работы или смысла. Помогаю найти опору и план.</p><span>→</span></div>
+</div></div></section>
+<section id="obo" class="about"><div class="w"><div class="big">Я не даю готовых ответов. Я помогаю услышать ваши собственные.</div>
+<div class="txt"><p>Работаю в когнитивно-поведенческом и системном подходах. На первой встрече мы обсуждаем запрос и решаем, подходит ли вам такой формат. Если не подходит, подскажу, к кому лучше обратиться.</p><p>Всё, что вы расскажете, остаётся между нами. Встречи проходят в спокойном темпе, и вы сами решаете, о чём говорить.</p>
+<div class="cv"><div><b>2017</b><span>Диплом психолога (демо-данные)</span></div><div><b>2019</b><span>Обучение семейной системной терапии</span></div><div><b>2022</b><span>Супервизия и личная терапия, регулярно</span></div><div><b>Сейчас</b><span>Частная практика, онлайн и очно в Волгограде</span></div></div></div></div></section>
+<section id="test" class="quiz"><div class="w"><div><div class="eb" style="color:var(--bg);opacity:.75">Короткий тест</div><h2 class="h2">Насколько вы <em>устали</em> на самом деле</h2><p class="lead">Шесть вопросов займут минуту. Результат подсказывает, на что обратить внимание, но не заменяет консультацию специалиста.</p></div><div class="qc" id="qc"></div></div></section>
+<section id="format"><div class="w"><div class="sec-h"><div class="eb">Формат и стоимость</div><h2 class="h2">Сколько это <em>стоит</em></h2><p>Встречи проходят онлайн или очно. Стоимость одинаковая, оплата после встречи.</p></div>
+<div class="pr"><div class="pc r"><h3>Первая встреча</h3><div class="pp">2 500 ₽ <small>/ 50 мин</small></div><p>Знакомимся, обсуждаем запрос и решаем, как работать дальше.</p><ul><li>Разбор запроса</li><li>План работы</li><li>Без обязательств продолжать</li></ul><a class="btn ln" data-go="zapis" href="#">Записаться</a></div>
+<div class="pc hl r"><h3>Индивидуальная сессия</h3><div class="pp">3 500 ₽ <small>/ 50 мин</small></div><p>Регулярная работа раз в неделю. Самый частый формат.</p><ul><li>Раз в неделю или две</li><li>Перенос за 24 часа</li><li>Пакет из 4 встреч со скидкой 10%</li></ul><a class="btn apr" data-go="zapis" href="#">Записаться</a></div>
+<div class="pc r"><h3>Встреча для пары</h3><div class="pp">4 500 ₽ <small>/ 80 мин</small></div><p>Работа с общими конфликтами. Приходите вдвоём или подключайтесь онлайн.</p><ul><li>Пара или онлайн-созвон</li><li>Домашние задания</li><li>Первая встреча в паре — 3 500 ₽</li></ul><a class="btn ln" data-go="zapis" href="#">Записаться</a></div></div></div></section>
+<section style="padding-top:0"><div class="w"><div class="sec-h"><div class="eb">Заметки</div><h2 class="h2">Что я <em>пишу</em></h2></div><div class="blog"><a class="post r"><div><small>Отношения</small><h3>Почему мы ссоримся из-за мелочей</h3></div><span>6 минут чтения · пример статьи</span></a><a class="post r"><div><small>Выгорание</small><h3>Пять признаков, что отпуск уже не поможет</h3></div><span>5 минут чтения · пример статьи</span></a><a class="post r"><div><small>Тревога</small><h3>Как разговаривать с внутренним критиком</h3></div><span>8 минут чтения · пример статьи</span></a></div></div></section>
+<section id="zapis" style="background:var(--surf)"><div class="w bk"><div><div class="eb">Запись</div><h2 class="h2">Напишите, <em>когда удобно</em></h2><p style="color:var(--mute);margin-top:20px">Отвечу в течение дня и предложу ближайшее время. Если не готовы к встрече, можно просто задать вопрос.</p></div>
+<form class="form" id="zf" novalidate style="background:var(--bg)"><div id="zbody"><div style="display:grid;gap:18px">
+<label for="zn">Как вас зовут<input type="text" id="zn" placeholder="Ольга"></label>
+<fieldset><legend style="margin-bottom:8px;font-weight:500;font-size:14px">Формат</legend><div class="rg"><label><input type="radio" name="fm" value="онлайн" checked><span>Онлайн</span></label><label><input type="radio" name="fm" value="очно в Волгограде"><span>Очно в Волгограде</span></label></div></fieldset>
+<fieldset><legend style="margin-bottom:8px;font-weight:500;font-size:14px">Когда удобно</legend><div class="rg"><label><input type="radio" name="tm" value="утром" checked><span>Утром</span></label><label><input type="radio" name="tm" value="днём"><span>Днём</span></label><label><input type="radio" name="tm" value="вечером"><span>Вечером</span></label></div></fieldset>
+<label for="zc">Telegram или телефон<input type="text" id="zc" placeholder="@username или +7 900 000-00-00"></label>
+<label for="zm">Коротко о запросе (по желанию)<textarea id="zm" rows="3" placeholder="Можно пару слов, подробности обсудим на встрече"></textarea></label>
+<div class="err" id="ze"></div><button class="btn apr" type="submit">Отправить заявку</button><div class="fine">Демо: форма никуда не отправляется, данные сохраняются только в вашем браузере.</div></div></div></form></div></section>
+<section id="faq"><div class="w"><div class="sec-h"><div class="eb">Вопросы</div><h2 class="h2">Что вы <em>спрашиваете</em></h2></div><div class="faq">
+<details open><summary>Как понять, что мне нужен психолог?</summary><p>Если вы заметили, что одна и та же ситуация повторяется, а собственные усилия не помогают, это хороший повод поговорить. Приходить можно и без острого кризиса.</p></details>
+<details><summary>Сколько встреч потребуется?</summary><p>Зависит от запроса. Часто достаточно 6–10 встреч, но первые выводы появляются уже после двух-трёх.</p></details>
+<details><summary>Онлайн работает так же, как очно?</summary><p>Для большинства запросов да. Нужны тихое место, стабильный интернет и наушники. Если формат вам не подойдёт, мы обсудим очную встречу.</p></details>
+<details><summary>Это конфиденциально?</summary><p>Да. Содержание встреч не разглашается, за исключением случаев, когда есть угроза жизни и здоровью.</p></details></div></div></section>
+<footer class="ft"><div class="w"><p>Демо-проект студии Akimov Web. Специалист и её данные вымышлены. Информация на сайте не является медицинской рекомендацией и не заменяет очную консультацию.</p><span>Волгоград · онлайн</span></div></footer>
+</div>
+</div>
+<div class="mcta"><a class="btn apr" data-go="zapis" href="#">Записаться на встречу</a></div>
+<div class="demo-toast" id="toast" role="status"></div>
+</div></div>
+<script>
+(function(){
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+window.$=$;window.$$=$$;
+var stage=$('#stage');
+$$('[data-mode]').forEach(function(b){b.addEventListener('click',function(){stage.classList.toggle('phone',b.dataset.mode==='phone');$$('[data-mode]').forEach(function(x){x.setAttribute('aria-pressed',x===b)})})});
+var root=document.documentElement,t=null;
+try{t=localStorage.getItem('demo-theme')}catch(e){}
+if(t)root.dataset.theme=t;
+$('#thm').addEventListener('click',function(){var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;var n=dark?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('demo-theme',n)}catch(e){}});
+var tt;window.toast=function(m){var e=$('#toast');e.textContent=m;e.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){e.classList.remove('on')},3200)};
+window.store={get:function(k,d){try{var v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set:function(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+document.addEventListener('click',function(e){var a=e.target.closest('[data-go]');if(!a)return;e.preventDefault();var el=document.getElementById(a.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});var m=$('.menu.open');if(m)m.classList.remove('open')});
+})();
+
+(function(){var sc=document.getElementById('scroller'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+function fmt(n){return Math.round(n).toLocaleString('ru-RU')}
+function count(e){var to=+e.dataset.count,pre=e.dataset.pre||'',suf=e.dataset.suf||'';if(rm||!to){e.textContent=pre+fmt(to)+suf;return}var t0=null;function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1300),v=to*(1-Math.pow(1-k,3));e.textContent=pre+fmt(v)+suf;if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)}
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');if(x.target.dataset.count!==undefined)count(x.target);io.unobserve(x.target)}})},{root:sc,threshold:.12});
+function init(){Array.prototype.forEach.call(document.querySelectorAll('.r,[data-count]'),function(e){if(e._ro)return;e._ro=1;if(e.dataset.count!==undefined&&!e.classList.contains('r'))e.textContent=(e.dataset.pre||'')+fmt(+e.dataset.count)+(e.dataset.suf||'');io.observe(e)})}
+init();window.revealInit=init;
+sc.addEventListener('scroll',function(){sc.classList.add('armed')},{once:true,passive:true});
+})();
+</script>
+<script>
+(function(){
+var Q=['Просыпаюсь уже уставшим(ей), даже после выходных','Раздражаюсь на близких из-за мелочей','Откладываю дела, которые раньше делал(а) легко','Ловлю себя на мысли «я не справляюсь»','Тяжело засыпать из-за прокручивания мыслей','Перестал(а) радоваться тому, что раньше нравилось'];
+var O=['Почти никогда','Иногда','Часто','Почти всегда'];
+var R=[{m:6,t:'Пока в пределах нормы',d:'Сейчас у вас достаточно ресурса. Если что-то всё же беспокоит, полезно обсудить это заранее, пока не накопилось.'},{m:12,t:'Усталость накапливается',d:'Несколько ответов говорят о том, что запас сил тает. Хороший момент остановиться, пересмотреть нагрузку и поговорить о происходящем.'},{m:99,t:'Пора поговорить с кем-то',d:'Вы давно держитесь на силе воли. Поддержка специалиста поможет не дойти до края и вернуть опору.'}];
+var i=0,sc=0,qc=$('#qc');
+function draw(){var h='<div class="qp">'+Q.map(function(_,k){return '<i class="'+(k<=i?'on':'')+'"></i>'}).join('')+'</div>';
+if(i<Q.length){h+='<h3>'+Q[i]+'</h3><div class="qo">'+O.map(function(o,k){return '<button type="button" data-v="'+k+'">'+o+'</button>'}).join('')+'</div><div class="fine">Вопрос '+(i+1)+' из '+Q.length+'. Тест не ставит диагноз.</div>'}
+else{var r=R.filter(function(x){return sc<=x.m})[0];h='<div class="qp"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><div class="res">'+r.t+'</div><p style="color:var(--mute)">'+r.d+'</p><div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap"><a class="btn apr" data-go="zapis" href="#">Записаться на встречу</a><button class="btn ln" type="button" data-again>Пройти заново</button></div><div class="fine">Баллы: '+sc+' из 18. Это самооценка, а не диагноз.</div>'}
+qc.innerHTML=h}
+qc.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;if(b.dataset.again!==undefined){i=0;sc=0}else if(b.dataset.v){sc+=+b.dataset.v;i++}draw()});
+draw();
+$('#zf').onsubmit=function(e){e.preventDefault();var n=$('#zn').value.trim(),c=$('#zc').value.trim();
+if(!n||c.length<5){$('#ze').textContent='Укажите имя и Telegram или телефон, чтобы я могла ответить.';return}
+var fm=$('input[name=fm]:checked').value,tm=$('input[name=tm]:checked').value;var L=store.get('levina-requests',[]);L.push({n:n,c:c,fm:fm,tm:tm,at:Date.now()});store.set('levina-requests',L);
+$('#zbody').innerHTML='<div class="sent"><h3>Спасибо, '+n+'</h3><p>Заявка получена: '+fm+', '+tm+'. Я напишу вам в течение дня.</p><p class="fine" style="margin-top:18px">Демо: на живом сайте заявка уйдёт в Telegram, здесь она сохранена только в вашем браузере.</p></div>';toast('Демо: заявка сохранена в браузере')};
+var bw=$('#bw'),ph=0;setInterval(function(){bw.classList.add('o');setTimeout(function(){ph^=1;bw.textContent=ph?'выдох':'вдох';bw.classList.remove('o')},600)},4000);
+$('#burger').onclick=function(){$('#menu').classList.toggle('open')};
+})();
+</script>
